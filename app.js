@@ -31,12 +31,11 @@ passport.use(new Strategy(function(username, password, cb){
 
     User.findOne( {email : username, password : password }, function(err, user){
 
-        console.dir(user);
-
-        console.log(user.length);
+        console.log(user);
+        console.log(user.email);
         if (err) { return cb(err); }
         if (user.length == 0) { return cb(null, false); }
-        return cb(null, username);
+        return cb(null, user);
         //return cb(null, {id : "121212", email: 'asdasd', password:'123123'});
     });
 }));

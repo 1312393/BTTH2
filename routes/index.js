@@ -6,7 +6,7 @@ router.get('/', function(req, res) {
     res.render('index', {
         title: 'Home page',
         isAuthenticated: req.isAuthenticated(),
-        email: req.user
+        user: req.user
     });
 
     //var username = "phan@gmail.com";

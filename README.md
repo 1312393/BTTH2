@@ -4,9 +4,9 @@
 
 Danh sách sinh viên:
 
-    1. Phùng Hải Nguyên
+    1. Phùng Hải Nguyên - 1312393
     
-    2. Trần Thanh Phán
+    2. Trần Thanh Phán - 1312415
 
 URL: **Insert your Heroku URL here**
 

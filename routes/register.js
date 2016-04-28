@@ -1,6 +1,8 @@
 var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
+var User = require('../models/users');
+var SaltAndHash = require('../password');
 
 router.get('/register', function(req, res) {
     res.render('register', {
@@ -9,17 +11,19 @@ router.get('/register', function(req, res) {
     });
 });
 router.post('/register', function(req,res) {
+    var salt = SaltAndHash.salt();
+    var hash = SaltAndHash.hash(salt, req.body.password);
 
-
-    var User =  mongoose.model('users');
     var NewUser = new User({
         email : req.body.email,
-        password : req.body.password,
-        fullname : req.body.fullname
+        fullName : req.body.fullname,
+        salt : salt,
+        hash : hash
     });
-    console.log(NewUser.email);
-    mongoose.model('users').find({email : req.body.email},function(err, User){
-        if(User.length == 0) {
+
+
+    mongoose.model('users').find({email : req.body.email},function(err, user){
+        if(user.length == 0) {
             if(!req.body.email || !req.body.password || !req.body.fullname){
                 res.render('register', {
                     title: 'Register',

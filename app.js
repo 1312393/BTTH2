@@ -6,8 +6,6 @@ var expressSession = require('express-session');
 var mongoose = require('mongoose');
 var passport = require('passport');
 var Strategy = require('passport-local').Strategy;
-var SaltAndHash  = require('./password');
-
 var User = require('./models/users');
 
 app.set('view engine','ejs');
@@ -30,13 +28,27 @@ function Ensureauthencated(req,res,next) {
     }
 };
 passport.use(new Strategy(function(username, password, cb){
-    User.findOne( {email : username}, function(err, user){
+
+    User.findOne( {email : username, password : password }, function(err, user){
+
+        console.log(user);
+        console.log(user.email);
         if (err) { return cb(err); }
-        if (!user) { return cb(null, false); }
-        if(SaltAndHash.validate(user.hash, user.salt,password))return cb(null, user);
-        return cb(null, false);
+        if (user.length == 0) { return cb(null, false); }
+        return cb(null, user);
+        //return cb(null, {id : "121212", email: 'asdasd', password:'123123'});
     });
 }));
+//passport.serializeUser(function(user, cb) {
+//    console.log(user);
+//    cb(null, user.email);
+//});
+//passport.deserializeUser(function(email, cb) {
+//    mongoose.model('users').find({'email' : email}, function (err, user) {
+//        if (err) { return cb(err); }
+//        cb(null, user);
+//    });
+//});
 
 passport.serializeUser(function(user, done) {
     done(null, user);
@@ -55,18 +67,10 @@ app.get('/logout',function(req,res){
     req.logout();
     res.redirect('/');
 });
-var friend = require('./routes/friend');
-app.get('/friend',Ensureauthencated, friend);
-app.post('/friend',friend);
-
 var register = require('./routes/register');
 app.get('/register',register);
 app.post('/register',register);
 app.listen(3000, function(){
     console.log('http://localhost:3000');
-    mongoose.connect('mongodb://localhost/WebData');
+    mongoose.connect('mongodb://localhost/WebData')
 });
-
-
-
-

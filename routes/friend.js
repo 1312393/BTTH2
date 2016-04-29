@@ -5,8 +5,8 @@ function renderPage( remark, req, res){
     var friendList = [];
     User.findOne({email : req.user.email},function(err, user){
         user.friend.forEach(function(friend){
-            friendList.push({"email" : friend.email, "fullName": friend.fullName});
-        })
+            friendList.push({"email" : friend.email, "fullName": friend.fullName, id : friend._id});
+        });
         res.render('friend', {
             title: 'friend',
             user: req.user,

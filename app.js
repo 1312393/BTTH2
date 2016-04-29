@@ -59,9 +59,17 @@ var friend = require('./routes/friend');
 app.get('/friend',Ensureauthencated, friend);
 app.post('/friend',friend);
 
+var mail = require('./routes/mail');
+app.get('/mail/:id',Ensureauthencated, mail);
+app.post('/mail/:id', mail);
+
 var register = require('./routes/register');
 app.get('/register',register);
 app.post('/register',register);
+
+var viewMail = require('./routes/viewMail');
+app.get('/:id',Ensureauthencated,viewMail);
+
 app.listen(3000, function(){
     console.log('http://localhost:3000');
     mongoose.connect('mongodb://localhost/WebData');

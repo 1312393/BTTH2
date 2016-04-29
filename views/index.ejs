@@ -4,7 +4,7 @@
         <title> <%=title%> </title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
-        <scrip></scrip>
+
     </head>
     <body>
         <div class="form-horizontal col-xs-10 col-md-offset-4">
@@ -13,12 +13,24 @@
             <a class="btn btn-success" href="/login">Login here</a>
             <a class="btn btn-success" href="/register">Register here</a>
             <%} else {%>
-            <div class = "col-xs-4 ">
+            <div class = "col-xs-6 ">
                 <h5>Hello <%=user.fullName%> </h5>
-                <a class="btn btn-success col-md-offset-3" href="/logout">Log out</a><br>
-                <a class="btn btn-success" href="/friend">Add new friend</a>
-                <a class="btn btn-success" href="/mail">write new mail</a>
+                <a class="btn btn-success " href="/logout">Log out</a>
+                <a class="btn btn-success " href="/friend">Write mail for friend</a>
             </div>
+            <%}%>
+        </div>
+        <div class="col-xs-12 col-md-offset-1">
+            <%if(isAuthenticated) {%>
+            <ul class="list-group col-xs-8 col-md-offset-1">
+                <% for(var i = 0;i < mailList.length; i++) {%>
+                    <%if(!mailList[i].seen){%>
+                        <a href="/<%=mailList[i]._id%>" class="list-group-item list-group-item-info"> Name: <%=mailList[i].fullName%> /  Title: <%=mailList[i].title%> / Create at: <%=mailList[i].createAt%></a>
+                    <%}else{%>
+                        <a href="/<%=mailList[i]._id%>" class="list-group-item"> Name: <%=mailList[i].fullName%> /  Title: <%=mailList[i].title%> / Create at: <%=mailList[i].createAt%></a>
+                    <%}%>
+                <%}%>
+            </ul>
             <%}%>
         </div>
 

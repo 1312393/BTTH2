@@ -27,9 +27,6 @@ router.post('/mail/:id', function(req,res){
     }
     else{
         User.findOne({email : req.body.email}, function (err, user){
-            console.log(req.user._id);
-            console.log(user.friend);
-            console.log(user.friend.indexOf(req.user._id));
             if(user.friend.indexOf(req.user._id) === -1){
                 res.render('mail',{
                     title : 'Send mail',

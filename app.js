@@ -67,8 +67,13 @@ var register = require('./routes/register');
 app.get('/register',register);
 app.post('/register',register);
 
+var sentMail = require('./routes/sentMail');
+app.get('/sentMail',Ensureauthencated,sentMail);
+
 var viewMail = require('./routes/viewMail');
 app.get('/:id',Ensureauthencated,viewMail);
+
+
 
 app.listen(3000, function(){
     console.log('http://localhost:3000');

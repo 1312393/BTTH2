@@ -15,8 +15,11 @@
             <%} else {%>
             <div class = "col-xs-6 ">
                 <h5>Hello <%=user.fullName%> </h5>
-                <a class="btn btn-success " href="/logout">Log out</a>
-                <a class="btn btn-success " href="/friend">Write mail for friend</a>
+                <a class="btn btn-success " href="/sentMail">Sent mail</a>
+                <a class="btn btn-success " href="/friend">Write mail for friend</a><br>
+                <div class="col-md-offset-1">
+                    <a class="btn btn-success " href="/logout">Log out</a>
+                </div>
             </div>
             <%}%>
         </div>

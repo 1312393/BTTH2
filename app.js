@@ -60,8 +60,8 @@ app.get('/friend',Ensureauthencated, friend);
 app.post('/friend',friend);
 
 var mail = require('./routes/mail');
-app.get('/mail/:id',Ensureauthencated, mail);
-app.post('/mail/:id', mail);
+app.get('/mail',Ensureauthencated, mail);
+app.post('/mail', mail);
 
 var register = require('./routes/register');
 app.get('/register',register);

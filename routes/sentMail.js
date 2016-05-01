@@ -3,6 +3,7 @@ var router = express.Router();
 var Mail = require('../models/mails');
 router.get('/sentMail', function(req, res) {
     Mail.find({sender : req.user._id}, function(err,mail){
+        mail.reverse();
         res.render('sentMail',{
             title : 'Sent mail',
             mailList : mail

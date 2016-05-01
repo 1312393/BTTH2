@@ -10,11 +10,14 @@
 
 <form class="form-horizontal col-xs-4 col-md-offset-4" method="post">
     <h2 class="col-md-offset-4">SEND MAIL</h2>
-
     <div class="form-group">
         <label class="control-label col-xs-3">Send to:</label>
         <div class="col-xs-8">
-            <input name="email" type="email" class="form-control"  readonly value=<%=user.email%>>
+            <select name="email"  class="form-control">
+                <% for(var i = 0;i < friendList.length; i++) { %>
+                <option value="<%=friendList[i].email%>"><%=friendList[i].email%></option>
+                <%}%>
+            </select>
         </div>
     </div>
     <div class="form-group">

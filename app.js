@@ -60,15 +60,20 @@ app.get('/friend',Ensureauthencated, friend);
 app.post('/friend',friend);
 
 var mail = require('./routes/mail');
-app.get('/mail/:id',Ensureauthencated, mail);
-app.post('/mail/:id', mail);
+app.get('/mail',Ensureauthencated, mail);
+app.post('/mail', mail);
 
 var register = require('./routes/register');
 app.get('/register',register);
 app.post('/register',register);
 
+var sentMail = require('./routes/sentMail');
+app.get('/sentMail',Ensureauthencated,sentMail);
+
 var viewMail = require('./routes/viewMail');
 app.get('/:id',Ensureauthencated,viewMail);
+
+
 
 app.listen(3000, function(){
     console.log('http://localhost:3000');

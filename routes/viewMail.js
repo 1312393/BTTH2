@@ -8,7 +8,7 @@ router.get('/:id', function (req, res) {
                 res.render('404');
             }
             else {
-                if (req.user._id != mail.receiver) {
+                if ((req.user._id != mail.sender._id) && (req.user._id != mail.receiver._id)){
                     res.render('404');
                 }
                 else {
@@ -18,7 +18,7 @@ router.get('/:id', function (req, res) {
                     })
                 }
             }
-        }).populate('sender');
+        }).populate('sender').populate('receiver');
     });
 });
 module.exports = router;

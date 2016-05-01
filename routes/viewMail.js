@@ -8,8 +8,6 @@ router.get('/:id', function (req, res) {
                 res.render('404');
             }
             else {
-                console.log(mail);
-                console.log(req.user);
                 if ((req.user._id != mail.sender._id) && (req.user._id != mail.receiver._id)){
                     res.render('404');
                 }

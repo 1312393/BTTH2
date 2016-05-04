@@ -8,7 +8,7 @@ Danh sách sinh viên:
     
     2. Trần Thanh Phán - 1312415
 
-URL: **Insert your Heroku URL here**
+URL: **https://btth2webchat.herokuapp.com/**
 
 ## Chức năng
 
@@ -17,12 +17,12 @@ Danh sách chức năng **bắt buộc**:
 * [x] Đăng ký tài khoản bằng email, password, và tên.
 * [x] Đăng nhập bằng email và password.
 * [x] Sau khi đăng nhập, người dùng sẽ được chuyển đến trang liệt kê danh sách các tin nhắn đã nhận, sắp xếp theo thứ tự thời gian, một nút để tạo tin nhắn mới, nút để xem danh sách bạn bè và nút để xem các tin nhắn đã gửi.
-* [ ] Tin nhắn chưa đọc phải được làm nổi bật hơn các tin nhắn khác.
+* [x] Tin nhắn chưa đọc phải được làm nổi bật hơn các tin nhắn khác.
 * [x] Nhấn vào nút "xem danh sách bạn" sẽ chuyển người dùng đến trang liệt kê danh sách người dùng cùng với các chức năng thêm bạn.
 * [x] Nhấn nút "tạo tin nhắn" sẽ chuyển sang giao diện cho phép người dùng gửi tin nhắn cho người dùng trong danh sách bạn bè. Người gửi phải nằm trong danh sách bạn bè và cho phép người dùng chọn qua dropdown.
 * [x] Nhấn "xem tin đã gửi" sẽ chuyển sang giao diện hiển thị danh sách tin nhắn đã gửi. Mỗi tin nhắn cần hiện thời gian người nhận đã đọc.
-* [ ] Mỗi người dùng chỉ có thể đọc tin nhắn 1 lần duy nhất.
-* [ ] Người dùng chỉ có thể đọc tin nhắn khi họ nằm trong danh sách người nhận.
+* [x] Mỗi người dùng chỉ có thể đọc tin nhắn 1 lần duy nhất.
+* [x] Người dùng chỉ có thể đọc tin nhắn khi họ nằm trong danh sách người nhận.
 
 Danh sách chức năng **phụ**:
 
@@ -40,15 +40,15 @@ Danh sách chức năng **phụ**:
 Danh sách chức năng **phụ** đã làm nhưng không được liệt kê ở trên:
 
 Các chuẩn đầu ra cần thực hiện:
-* [ ] Git với Centralize Workflow
-* [ ] Git theo Feature Branch Workflow
-* [ ] Git theo Feature Branch Workflow có Pull Request
-* [ ] Git theo Gitflow Workflow
+* [x] Git với Centralize Workflow
+* [x] Git theo Feature Branch Workflow
+* [x] Git theo Feature Branch Workflow có Pull Request
+* [x] Git theo Gitflow Workflow
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
 
-![Video Walkthrough](relative-path-to-your-gif-file-on-github-or-absolute-path-to-file-on-imgur-or-youtube)
+![Video Walkthrough](demo.gif)
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 

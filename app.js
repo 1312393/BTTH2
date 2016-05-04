@@ -76,11 +76,23 @@ app.get('/:id',Ensureauthencated,viewMail);
 var viewMail = require('./routes/viewSentMail');
 app.get('/sentMail/:id',Ensureauthencated,viewMail);
 
+app.set('port', (process.env.PORT || 3000));
 
+app.listen(app.get('port'), function(){
+    console.log('connect to host');
+});
 
-app.listen(3000, function(){
-    console.log('http://localhost:3000');
-    mongoose.connect('mongodb://localhost/WebData');
+var uristring = 
+  process.env.MONGOLAB_URI || 
+  process.env.MONGOHQ_URL || 
+  'mongodb://nguyenphung:123456@ds011872.mlab.com:11872/wb9315db';
+
+mongoose.connect(uristring, function (err, res) {
+  if (err) { 
+    console.log ('ERROR connecting to: ' + uristring + '. ' + err);
+  } else {
+    console.log ('Succeeded connected to: ' + uristring);
+  }
 });
 
 

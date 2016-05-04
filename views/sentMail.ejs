@@ -15,7 +15,7 @@
     </div>
     <ul class="list-group col-xs-8 col-md-offset-1">
         <% for(var i = 0;i < mailList.length; i++) { %>
-        <a href="/<%= mailList[i]._id %>" class="list-group-item "> Sent to: <%= mailList[i].receiver.fullName %> /
+        <a href="/sentMail/<%= mailList[i]._id %>" class="list-group-item "> Sent to: <%= mailList[i].receiver.fullName %> /
             Title: <%= mailList[i].title %> / Create at: <%= mailList[i].createAt %></a>
         <% } %>
     </ul>

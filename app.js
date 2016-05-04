@@ -28,7 +28,7 @@ function Ensureauthencated(req,res,next) {
     }else{
         res.redirect('/login');
     }
-};
+}
 passport.use(new Strategy(function(username, password, cb){
     User.findOne( {email : username}, function(err, user){
         if (err) { return cb(err); }
@@ -72,6 +72,9 @@ app.get('/sentMail',Ensureauthencated,sentMail);
 
 var viewMail = require('./routes/viewMail');
 app.get('/:id',Ensureauthencated,viewMail);
+
+var viewMail = require('./routes/viewSentMail');
+app.get('/sentMail/:id',Ensureauthencated,viewMail);
 
 
 
